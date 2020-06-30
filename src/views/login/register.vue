@@ -39,14 +39,14 @@
          </template>
        </van-field>
        <van-button type="info" block class="btn" @click="checkForm">立即注册</van-button>
+       <p class="link-login"><router-link to="/shop/login">已有账号? 立即登陆</router-link></p>
        </van-form>
      </div>
   </div>
 </template>
 
 <script>
-//重置一些css样式，html- 50px
-import  "@/assets/style/reset.css";
+import "@/assets/style/login.css";
 import AreaList from "@/utils/area";
 export default {
   name: '',
@@ -62,18 +62,22 @@ export default {
       confirm_pwd: "",//确认密码
       picCode:"", //图形验证码
       code:"",//手机验证码
+
       //控制密码显示隐藏的标志  true代表密码框，false代表的是文本框
       hidePwd: true,
       hidePwd1: true,
+
       //图形验证码的操作
       imgUrl: "",
       picKey: "",//图像验证码的key值
+
       //选择城市信息
       areaShow: false,
       aresList: AreaList,//城市列表数据
       area:"",
       province: "",
       city: "",
+
       //倒计时的功能
       msg:'发送验证码',
       btnIsDisabled: false,
@@ -92,17 +96,20 @@ export default {
         this.$toast.fail("手机号,密码，用户名，验证码不能为空");
         return false;
       }
+
       //校验手机号的格式是否合法
       var reg = /^1[345678]\d{9}$/;
       if(!reg.test(this.mobile)){
         this.$toast.fail("请输入正确的手机号");
         return false;
       }
+
       //确认密码和密码是否一致
       if(this.confirm_pwd != this.pwd){
         this.$toast.fail("密码不一致，请重新输入");
         return false;
       }
+
       this.submitRegister();//提交注册信息
       
     },
@@ -146,6 +153,7 @@ export default {
         timeout--;
       }, 1000);
     },
+
     //发送验证码接口
     sendCode(){
       this.$axios({
@@ -165,6 +173,7 @@ export default {
         this.countSeconds();//调用倒计时的方法
       })
     },
+
     //提交注册
     submitRegister(){
       this.$axios({
@@ -186,36 +195,11 @@ export default {
         this.$toast.success("恭喜你,注册成功");
         this.$router.push("/");
       })
+
     }
+
   },
 };
 </script>
-
 <style lang="scss" scoped>
-  #login{
-    width: 90%;
-    border: #dddddd 1px solid;
-    border-radius: 3px;
-    margin: .5rem auto;
-    padding: .2rem;
-    box-sizing: border-box;
-    .login-head{
-      line-height: .88rem;
-      font-size: .35rem;
-      font-weight: bold;
-    }
-    .inp{
-      border: #d4d4d4 1px solid;
-      border-radius: 5px;
-      margin-bottom: .3rem;
-    }
-    .btn{
-      background-image: linear-gradient(90deg,#ffb821 0,#ff5c38 45%,#ff1459);
-      border: none;
-      box-shadow: 0px 3px 2px rgba($color: #000000, $alpha: .3);
-    }
-    .van-image{
-      width: 3rem;
-    }
-  }
 </style>
