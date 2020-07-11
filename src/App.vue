@@ -2,12 +2,34 @@
   <div id="app">
     <!-- <img src="./assets/logo.png"> -->
     <router-view/>
+    <Loading v-if="isLoading"></Loading>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+data() { 
+    return {
+
+    }
+  },
+  props: [
+
+  ],
+  components:{
+  },
+ computed:{
+     isLoading() {
+      return this.$store.state.isLoading;
+    }
+ },
+  mounted() {
+
+  },
+  methods:{
+
+  },
 }
 </script>
 

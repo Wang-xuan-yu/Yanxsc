@@ -7,11 +7,14 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     //数据池
     state:{
-
+        count:100,
+        isLoading:false, //控制正在加载
     },
     //操作state的内容
     mutations:{
-
+        changeLoading(state,bool){
+            state.isLoading=bool
+        }
     },
     getters:{
 

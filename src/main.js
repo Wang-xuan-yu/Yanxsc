@@ -4,7 +4,11 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store  from "@/store/index";
+import Loading from '@/components/Loading'
 
+
+//全局使用
+Vue.component("Loading",Loading)
 //设置axios对象
 //import axios from "axios";
 import axios from "@/utils/request";//引入axios封装的拦截器对象
