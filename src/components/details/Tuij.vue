@@ -1,7 +1,10 @@
 <template>
   <div class="dy-box">
     <div class="dy-list">
-      <p @click="tog()">人气推荐 ></p>
+     <p>
+        <span @click="back">&lt;</span>
+        <span>人气推荐</span>
+      </p>
       <ul>
         <li v-for="(item,index) in dy_List" :key="index">
           <img :src="item.pic" alt />
@@ -20,7 +23,7 @@
 
 <script>
 export default {
-  name: "",
+   name: "",
   data() {
     return {
       dy_List: []
@@ -31,14 +34,14 @@ export default {
   mounted() {
     this.$axios.get("https://api.it120.cc/small4/shop/goods/list").then(res => {
       console.log(res.data);
-      this.dy_List = res.data.slice(9, 13);
+      this.dy_List = res.data.slice();
     });
   },
   methods: {
-    tog(){
+    back() {
       this.$router.push({
-        path:"/Tuij",
-      })
+        path: "/"
+      });
     }
   }
 };
@@ -52,13 +55,20 @@ export default {
     // height: 400px;
     // background: red;
     border-bottom: 1.2rem solid #f5f5f5;
-    > p {
-      height: 40px;
-      // background: #000;
-      line-height: 40px;
-      text-align: center;
-      font-size: 17px;
+    >p {
+    width: 100%;
+    height: 50px;
+    // border-bottom: 2px solid #f5f5f5;
+    line-height: 50px;
+    span:nth-of-type(1) {
+      font-size: 20px;
+      margin-left: 20px;
     }
+    span:nth-of-type(2) {
+      font-size: 15px;
+      margin-left: 110px;
+    }
+  }
     ul {
       display: flex;
       flex-wrap: wrap;

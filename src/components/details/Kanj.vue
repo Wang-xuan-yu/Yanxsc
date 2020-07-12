@@ -1,9 +1,12 @@
 <template>
-  <div class="dy-box">
-    <div class="dy-list">
-      <p  @click="tog()">全民砍价 ></p>
+  <div>
+    <div class="dy-box">
+      <p>
+        <span @click="back">&lt;</span>
+        <span>砍价列表</span>
+      </p>
       <ul>
-        <li @click="tog()" v-for="(item,index) in dy_List" v-show="index>99761" :key="index">
+        <li @click="tog(item.id)" v-for="(item,index) in dy_List" :key="index">
           <img :src="item.pic" alt />
           <div>
             <p>{{item.name}}</p>
@@ -44,10 +47,10 @@ export default {
       });
   },
   methods: {
-    tog(){
+    back() {
       this.$router.push({
-        path:"/Kanj",
-      })
+        path: "/"
+      });
     }
   }
 };
@@ -55,20 +58,21 @@ export default {
 
 <style scoped lang="scss">
 .dy-box {
-  margin-top: 10px;
-  .dy-list {
+  >p {
     width: 100%;
-    // height: 400px;
-    // background: red;
-    border-bottom: 0.2rem solid #f5f5f5;
-    > p {
-      height: 40px;
-      // background: #000;
-      line-height: 40px;
-      text-align: center;
-      font-size: 17px;
+    height: 50px;
+    // border-bottom: 2px solid #f5f5f5;
+    line-height: 50px;
+    span:nth-of-type(1) {
+      font-size: 20px;
+      margin-left: 20px;
     }
-    ul {
+    span:nth-of-type(2) {
+      font-size: 15px;
+      margin-left: 110px;
+    }
+  }
+  ul {
       // padding: 5px;
       > li {
         display: flex;
@@ -122,6 +126,5 @@ export default {
         }
       }
     }
-  }
 }
 </style>
