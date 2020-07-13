@@ -9,6 +9,7 @@ import Person from "@/views/home/Person";
 
 import Kanj from '@/components/details/Kanj'
 import Tuij from '@/components/details/Tuij'
+import Fenlxq from '@/components/details/Fenlxq'
 // 定义一个变量
 const shop = [
     //注册页面的路由
@@ -76,11 +77,25 @@ const shop = [
       path: "/Kanj",
       name: "Kanj",
       component: Kanj,
+      meta:{
+        title:"严选商城-砍价"
+      }
   },
   {
     path: "/Tuij",
     name: "Tuij",
     component: Tuij,
+    meta:{
+      title:"严选商城-人气推荐"
+    }
+},
+{
+  path: "/goods/cate/:id",
+  name: "Fenlxq",
+  component: Fenlxq,
+  meta:{
+    title:"严选商城-分类详情"
+  }
 },
 ];
 
