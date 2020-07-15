@@ -1,13 +1,13 @@
 <template>
   <div class="dy-box">
     <div class="dy-list">
-      <p>精选专题 ></p>
+      <p @click="tog()">精选专题 ></p>
       <van-swipe :show-indicators="dy_flag" :loop="false" :width="320">
-        <van-swipe-item v-for="(item,index) in dy_List" :key="index">
+        <router-link tag="van-swipe-item" :to="'/detail/'+item.id" v-for="(item,index) in dy_List" :key="index">
           <img :src="item.pic" alt />
           <p>{{item.title}}</p>
           <p>{{item.descript}}</p>
-        </van-swipe-item>
+        </router-link>
       </van-swipe>
     </div>
   </div>
@@ -30,13 +30,19 @@ export default {
       this.dy_List = res.data;
     });
   },
-  methods: {}
+  methods: {
+    tog() {
+      this.$router.push({
+        path: "/special"
+      });
+    }
+  }
 };
 </script>
 
 <style scoped lang="scss">
 .dy-box {
-//   height: 400px;
+  //   height: 400px;
   //   border-bottom: 0.2rem solid #f5f5f5;
   .dy-list {
     width: 100%;
@@ -51,8 +57,8 @@ export default {
       font-size: 17px;
     }
     .van-swipe-item {
-     margin-left: 5px;
-    //   background: red;
+      margin-left: 5px;
+      //   background: red;
       > img {
         width: 320px;
         text-align: center;

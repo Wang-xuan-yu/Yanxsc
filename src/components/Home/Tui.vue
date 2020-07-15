@@ -3,7 +3,7 @@
     <div class="dy-list">
       <p @click="tog()">人气推荐 ></p>
       <ul>
-        <li v-for="(item,index) in dy_List" :key="index">
+        <router-link tag="li" :to="'/goodsInfo/'+item.id" v-for="(item,index) in dy_List" :key="index">
           <img :src="item.pic" alt />
           <div>
             <p>{{item.name}}</p>
@@ -12,7 +12,7 @@
               <span style="color:#d00000">￥{{item.minPrice}}</span>
             </p>
           </div>
-        </li>
+        </router-link>
       </ul>
     </div>
   </div>

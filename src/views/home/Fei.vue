@@ -1,6 +1,6 @@
 <template>
   <div>
-    <van-search placeholder="输入搜索的商品名字" />
+    <van-search placeholder="输入搜索的商品名字" @focus="goSearch"/>
     <!-- 分类列表数据 -->
     <div>
       <van-tree-select
@@ -12,7 +12,7 @@
           <div class="sub_cate">
             <router-link
               tag="div"
-              :to="'/goods/cate/'+item.id"
+              :to="'/Fenlxq/'+item.id"
               class="item"
               v-for="(item,index) in subCate"
               :key="index"
@@ -77,6 +77,10 @@ export default {
     //点击切换左侧菜单
     changeLeft(index) {
       console.log(this.cateIds[index]);
+    },
+    goSearch(){
+      
+      this.$router.push("/search");
     }
   }
 };

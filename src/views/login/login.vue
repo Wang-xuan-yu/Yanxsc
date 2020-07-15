@@ -43,7 +43,7 @@ export default {
       let data = storage.get("09A_user",true);
       ///已经登陆过，直接跳转到首页
       if(data != null){
-          next("/");
+          next("/home");
       }else{//没有登陆，继续在当前页面停留
           next();
       }
@@ -90,6 +90,8 @@ export default {
             storage.set("09A_user",user,true);
 
             this.$toast.success("用户登陆成功");
+
+            this.$router.go(-1);//返回上个页面
         })
     }
   }
