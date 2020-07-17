@@ -16,6 +16,10 @@ import Special from "@/views/article/special";
 import articleDetail from "@/views/article/detail";
 
 import GoodsInfo from '@/components/details/goodsInfo'
+
+import orderConfirm from "@/views/order/orderConfirm";
+import orderPay from "@/views/order/orderPay";
+
 // 定义一个变量
 const shop = [
   //注册页面的路由
@@ -134,7 +138,22 @@ const shop = [
     meta: {
       title: "严选商城-商品详情页面"
     }
-  }
+  },
+  {
+    path: "/order/confirm",
+    name: "order_confirm",
+    component: orderConfirm,
+    meta: {
+        title: "严选商城-订单确认"
+    }
+},{
+    path: "/order/pay",
+    name: "order_pay",
+    component: orderPay,
+    meta: {
+        title: "严选商城-确认付款"
+    }
+}
 ];
 
 //抛出shop对象
