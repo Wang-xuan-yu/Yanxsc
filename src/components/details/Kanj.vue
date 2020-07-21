@@ -6,7 +6,7 @@
         <span>砍价列表</span>
       </p>
       <ul>
-        <li @click="tog(item.id)" v-for="(item,index) in dy_List" :key="index">
+        <router-link tag="li" :to="'/bargan/'+item.id" v-for="(item,index) in dy_List" :key="index">
           <img :src="item.pic" alt />
           <div>
             <p>{{item.name}}</p>
@@ -22,7 +22,7 @@
               <span>限量</span>
             </p>
           </div>
-        </li>
+        </router-link>
       </ul>
     </div>
   </div>
@@ -47,6 +47,11 @@ export default {
       });
   },
   methods: {
+    back() {
+      this.$router.push({
+        path: "/"
+      });
+    },
     back() {
       this.$router.push({
         path: "/"

@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 
 //引入自定义的路由文件
 import shop from "./shop";
+import shop1 from "./shop1";
 
 Vue.use(Router)
 
@@ -15,6 +16,7 @@ export default new Router({
       component: HelloWorld
     },
     //扩展运算符
-    ...shop
+    ...shop,
+    ...shop1
   ]
 })

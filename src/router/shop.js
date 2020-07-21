@@ -16,9 +16,13 @@ import Special from "@/views/article/special";
 import articleDetail from "@/views/article/detail";
 
 import GoodsInfo from '@/components/details/goodsInfo'
+import bargan from "@/components/details/bargan";//商品砍价页面
+import cutInfo from "@/components/details/cutInfo";//砍价详情页面
 
 import orderConfirm from "@/views/order/orderConfirm";
 import orderPay from "@/views/order/orderPay";
+
+import MineOrder from "@/views/mine/order"
 
 // 定义一个变量
 const shop = [
@@ -123,7 +127,7 @@ const shop = [
       title: "严选商城-严选专栏"
     }
   },
-   {
+  {
     path: "/detail/:id",
     name: "article",
     component: articleDetail,
@@ -140,20 +144,45 @@ const shop = [
     }
   },
   {
+    path: "/bargan/:id",
+    name: "bargan",
+    component: bargan,
+    meta: {
+      title: "严选商城-商品砍价页面"
+    }
+  },
+  {
+    path: "/cutinfo",
+    name: "cutinfo",
+    component: cutInfo,
+    meta: {
+      title: "严选商城-砍价详情页面"
+    }
+  },
+  {
     path: "/order/confirm",
     name: "order_confirm",
     component: orderConfirm,
     meta: {
-        title: "严选商城-订单确认"
+      title: "严选商城-订单确认"
     }
-},{
+  },
+  {
     path: "/order/pay",
     name: "order_pay",
     component: orderPay,
     meta: {
-        title: "严选商城-确认付款"
+      title: "严选商城-确认付款"
     }
-}
+  },
+  {
+    path: "/mine/order",
+    name: "order_mine",
+    component: MineOrder,
+    meta: {
+      title: "严选商城-我的订单"
+    }
+  }
 ];
 
 //抛出shop对象
